@@ -93,12 +93,53 @@ SAPI.BIRT.DATA = {
 };
 
 // Class constructors
+/**
+ * Class used for created BIRT items to be used in a report
+ *
+ * @class Birt
+ * @constructor
+ */
 var Birt      = function() {};
+/**
+ * Class used to create a BIRT Data Object connection definition
+ * @param dataProperties
+ * @constructor
+ */
 var BirtData  = function(dataProperties)  {this.dataProperties  = dataProperties.birtDataProperties;};
+/**
+ * Class used to create a label to be used in a report
+ *
+ * @param labelProperties
+ * @constructor
+ */
 var BirtLabel = function(labelProperties) {this.labelProperties = labelProperties.birtLabelProperties};
+/**
+ * Class used to create a text item to be used in a report
+ * @param textProperties
+ * @constructor
+ */
 var BirtText  = function(textProperties)  {this.textProperties  = textProperties.birtTextProperties};
+/**
+ * Class used to create a chart item to be used in a report
+ *
+ * @param chartProperties
+ * @constructor
+ */
 var BirtChart = function(chartProperties) {this.chartProperties = chartProperties.birtChartProperties};
+/**
+ * Class used to create a table to be used in a report
+ *
+ * @param tableProperties
+ * @constructor
+ */
 var BirtTable = function(tableProperties) {this.tableProperties = tableProperties.birtTableProperties};
+
+/**
+ * Class ussed to create a grid to be used in a report
+ *
+ * @param gridProperties
+ * @constructor
+ */
 var BirtGrid  = function(gridProperties)  {this.gridProperties  = gridProperties.birtGridProperties};
 
 // Birt item classes
@@ -147,12 +188,68 @@ var BirtTableProperties = function(birtTableProperties) {this.birtTablePropertie
 var BirtGridProperties  = function(birtGridProperties)  {this.birtGridProperties  = birtGridProperties;};
 
 // Getters
+/**
+ * Properties for BirtData
+ *
+ * @method getProperties
+ * @for BirtData
+ *
+ * @return {BirtDataProperties} dataProperties
+ */
 BirtData.prototype.getProperties           = function(){SAPI.DEBUG.debug(JSON.stringify(this.dataProperties));};
+/**
+ * Properties for BirtLabel
+ *
+ * @method getProperties
+ * @for BirtLabel
+ *
+ * @ return {BirtLabelProperties} labelProperties
+ */
 BirtLabel.prototype.getProperties          = function(){SAPI.DEBUG.debug(JSON.stringify(this.labelProperties));};
+/**
+ * Properties for BirtText
+ *
+ * @method getProperties
+ * @for BirtText
+ *
+ * @return {BirtTextProperties} textProperties
+ */
 BirtText.prototype.getProperties           = function(){SAPI.DEBUG.debug(JSON.stringify(this.textProperties));};
+/**
+ * Properties for BirtChart
+ *
+ * @method getProperties
+ * @for BirtChart
+ *
+ * @return {BirtChartProperties} chartProperties
+ */
 BirtChart.prototype.getProperties          = function(){SAPI.DEBUG.debug(JSON.stringify(this.chartProperties));};
+/**
+ * Properties for BirtTable
+ *
+ * @method getProperties
+ * @for BirtTable
+ *
+ * @return {BirtTableProperties} tableProperties
+ */
 BirtTable.prototype.getProperties          = function(){SAPI.DEBUG.debug(JSON.stringigy(this.tableProperties));};
+/**
+ * Properties for BirtGrid
+ *
+ * @method getProperties
+ * @for BirtGrid
+ *
+ * @return {BirtGridProperties} gridProperties
+ */
 BirtGrid.prototype.getProperties           = function(){SAPI.DEBUG.debug(JSON.stringigy(this.gridProperties));};
+/**
+ * Generic BIRT item properties
+ *
+ * @method getProperties
+ * @for BirtItemProperties
+ *
+ * @return {BirtItemProperties} birtItemProperties
+ */
 BirtItemProperties.prototype.getProperties = function(){SAPI.DEBUG.debug(JSON.stringify(this.birtItemProperties));};
 
 // Setters
@@ -160,54 +257,77 @@ BirtItemProperties.prototype.getProperties = function(){SAPI.DEBUG.debug(JSON.st
  * Properties setter for BirtData object
  *
  * @method setProperties
- * @param {Object} dataProperties Argument 1
- * @return {null} nothing
+ * @for BirtData
+ * @param {BirtDataProperties} dataProperties Argument 1
  */
 BirtData.prototype.setProperties  = function(dataProperties){SAPI.BIRT.ELEMENTS.setElemeProperties('BirtData',     dataProperties, this);};
 /**
  * Properties setter for BirtLabel object
  *
  * @method setProperties
- * @param {Object} labelProperties Argument 1
- * @return {null} nothing
+ * @for BirtLabel
+ * @param {BirtLabelProperties} labelProperties Argument 1
  */
 BirtLabel.prototype.setProperties = function(labelProperties){SAPI.BIRT.ELEMENTS.setElementProperties('BirtLabel', labelProperties, this);};
 /**
  * Properties setter for BirtText object
  *
  * @method setProperties
- * @param {Object} textProperties Argument 1
- * @return {null} nothing
+ * @for BirtText
+ * @param {BirtTextProperties} textProperties Argument 1
  */
 BirtText.prototype.setProperties  = function(textProperties) {SAPI.BIRT.ELEMENTS.setElementProperties('BirtText',  textProperties,  this);};
 /**
  * Properties setter for BirtChart object
  *
  * @method setProperties
- * @param {Object} chartProperties Argument 1
- * @return {null} nothing
+ * @for BirtChart
+ * @param {BirtChartProperties} chartProperties Argument 1
  */
 BirtChart.prototype.setProperties = function(chartProperties){SAPI.BIRT.ELEMENTS.setElementProperties('BirtChart', chartProperties, this);};
 /**
  * Properties setter for BirtTable object
  *
  * @method setProperties
- * @param {Object} tableProperties Argument 1
- * @return {null} nothing
+ * @for BirtTable
+ * @param {BirtTableProperties} tableProperties Argument 1
  */
 BirtTable.prototype.setProperties = function(tableProperties){SAPI.BIRT.ELEMENTS.setElementProperties('BirtTable', tableProperties, this);};
 /**
  * Properties setter for BirtGrid object
  *
  * @method setProperties
- * @param {Object} gridProperties Argument 1
- * @return {null} nothing
+ * @for BirtGrid
+ * @param {BirtGridProperties} gridProperties Argument 1
  */
 BirtGrid.prototype.setProperties  = function(gridProperties) {SAPI.BIRT.ELEMENTS.setElementProperties('BirtGrid',  gridProperties,  this);};
 
 // Birt Methods
+
+/**
+ * Creates a new empty report design
+ *
+ * @method initNewReport
+ * @for Birt
+ */
 Birt.prototype.initNewReport               = function(){SAPI.BIRT.initNewReport();};
+/**
+ * Saves a report design in XML format to the defined iHub for report generation
+ *
+ * @method saveReport
+ * @for Birt
+ * @param qualifiedReportName
+ * @param overwrite
+ */
 Birt.prototype.saveReport                  = function(qualifiedReportName, overwrite){SAPI.BIRT.saveReport(qualifiedReportName, overwrite)};
 
 // BirtData Methods
+/**
+ * Retireves a list of available data objects at the given location
+ *
+ * @method listDataModels
+ * @for BirtData
+ * @param qulifiedPath
+ * @return {Object} availableDataModels
+ */
 BirtData.prototype.listDataModels          = function(qulifiedPath) {};
