@@ -10,7 +10,7 @@ var SAPI                 = SAPI                 || {};
 
 SAPI = {
     getBaseDocumentationURL: function() {
-        return 'http://www.mydomain.com/';
+        return 'https://github.com/kclark-jenkins/SAPI/';
     }
 };
 
@@ -46,7 +46,7 @@ SAPI.BIRT = {
 
 SAPI.BIRT.EXCEPTIONS = {
     BirtElementNotDefined: function(element) {
-        this.message = element + ' is not defined or does not exist.  More at ' + SAPI.BIRT.EXCEPTIONS.getBirtElementNotFoundDocumentation('BirtElementNotFound');
+        this.message = element + ' is not defined or does not exist.  More at ' + SAPI.BIRT.EXCEPTIONS.getBirtElementNotFoundDocumentation('wiki/BirtElementNotFound');
     },
     getBirtElementNotFoundDocumentation: function(exception) {
         return SAPI.getBaseDocumentationURL() + exception;
@@ -103,11 +103,47 @@ var BirtGrid  = function(gridProperties)  {this.gridProperties  = gridProperties
 
 // Birt item classes
 var BirtItemProperties  = function(birtItemProperties) {this.birtItemProperties = birtItemProperties;};
+/**
+ * Properties class for BirtData
+ *
+ * @class BirtDataProperties
+ * @constructor
+ */
 var BirtDataProperties  = function(birtDataProperties)  {this.birtDataProperties  = birtDataProperties;};
+/**
+ * Properties class for BirtLabel
+ *
+ * @class BirtLabelProperties
+ * @constructor
+ */
 var BirtLabelProperties = function(birtLabelProperties) {this.birtLabelProperties = birtLabelProperties;};
+/**
+ * Properties class for BirtText
+ *
+ * @class BirtTextProperties
+ * @constructor
+ */
 var BirtTextProperties  = function(birtTextProperties)  {this.birtTextProperties  = birtTextProperties;};
+/**
+ * Properties class for BirtChart
+ *
+ * @class BirtChartProperties
+ * @constructor
+ */
 var BirtChartProperties = function(birtChartProperties) {this.birtChartProperties = birtChartProperties;};
+/**
+ * Properties class for BirtTable
+ *
+ * @class BirtTableProperties
+ * @constructor
+ */
 var BirtTableProperties = function(birtTableProperties) {this.birtTableProperties = birtTableProperties;};
+/**
+ * Properties class for BirtGrid
+ *
+ * @class BirtGridProperties
+ * @constructor
+ */
 var BirtGridProperties  = function(birtGridProperties)  {this.birtGridProperties  = birtGridProperties;};
 
 // Getters
@@ -120,11 +156,53 @@ BirtGrid.prototype.getProperties           = function(){SAPI.DEBUG.debug(JSON.st
 BirtItemProperties.prototype.getProperties = function(){SAPI.DEBUG.debug(JSON.stringify(this.birtItemProperties));};
 
 // Setters
+/**
+ * Properties setter for BirtData object
+ *
+ * @method setProperties
+ * @param {Object} dataProperties Argument 1
+ * @return {null} nothing
+ */
 BirtData.prototype.setProperties  = function(dataProperties){SAPI.BIRT.ELEMENTS.setElemeProperties('BirtData',     dataProperties, this);};
+/**
+ * Properties setter for BirtLabel object
+ *
+ * @method setProperties
+ * @param {Object} labelProperties Argument 1
+ * @return {null} nothing
+ */
 BirtLabel.prototype.setProperties = function(labelProperties){SAPI.BIRT.ELEMENTS.setElementProperties('BirtLabel', labelProperties, this);};
+/**
+ * Properties setter for BirtText object
+ *
+ * @method setProperties
+ * @param {Object} textProperties Argument 1
+ * @return {null} nothing
+ */
 BirtText.prototype.setProperties  = function(textProperties) {SAPI.BIRT.ELEMENTS.setElementProperties('BirtText',  textProperties,  this);};
+/**
+ * Properties setter for BirtChart object
+ *
+ * @method setProperties
+ * @param {Object} chartProperties Argument 1
+ * @return {null} nothing
+ */
 BirtChart.prototype.setProperties = function(chartProperties){SAPI.BIRT.ELEMENTS.setElementProperties('BirtChart', chartProperties, this);};
+/**
+ * Properties setter for BirtTable object
+ *
+ * @method setProperties
+ * @param {Object} tableProperties Argument 1
+ * @return {null} nothing
+ */
 BirtTable.prototype.setProperties = function(tableProperties){SAPI.BIRT.ELEMENTS.setElementProperties('BirtTable', tableProperties, this);};
+/**
+ * Properties setter for BirtGrid object
+ *
+ * @method setProperties
+ * @param {Object} gridProperties Argument 1
+ * @return {null} nothing
+ */
 BirtGrid.prototype.setProperties  = function(gridProperties) {SAPI.BIRT.ELEMENTS.setElementProperties('BirtGrid',  gridProperties,  this);};
 
 // Birt Methods
