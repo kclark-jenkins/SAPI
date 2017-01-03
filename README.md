@@ -16,8 +16,8 @@ Coming soon
 
 ## Documentation
 
-* [Documentation on github](src/Documentation/index.md).
-* [Download HTML Documentation](src/HTMLDocumentation).
+* [Documentation on github](https://github.com/kclark-jenkins/SAPI-Documentation/blob/master/Markdown/index.md).
+* [View HTML Documentation](https://github.com/kclark-jenkins/SAPI-Documentation/tree/master/HTML).
 
 
 ## Contributing
